@@ -4,6 +4,81 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_gravity="center_horizontal"
+    android:background="@color/lila"
+    android:orientation="vertical"
     tools:context=".view.FirstPageActivity">
+
+    <SearchView
+        android:id="@+id/search"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="12dp"
+        android:layout_marginEnd="364dp"
+        android:background="@drawable/bkg_search"
+        android:closeIcon="@drawable/baseline_close_24"
+        android:focusable="false"
+        android:iconifiedByDefault="false"
+        android:queryHint="@string/search_bar"
+        android:searchHintIcon="@null"
+        android:searchIcon="@drawable/baseline_location_on_24"
+        android:theme="@style/SearchViewStyle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.cardview.widget.CardView
+        style="@style/radius"
+        android:layout_width="250dp"
+        android:layout_height="350dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="50dp"
+        android:elevation="4dp"
+        android:orientation="vertical"
+        app:cardBackgroundColor="@color/light_lila"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/search">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp" />
+
+        <TextView
+            android:id="@+id/cardTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:gravity="center"
+            android:text="@string/card_title"
+            android:textColor="@android:color/white"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/cardImage"
+            android:layout_width="118dp"
+            android:layout_height="124dp"
+            android:layout_gravity="center"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_launcher_background" />
+
+        <TextView
+            android:id="@+id/cardDescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="300dp"
+            android:gravity="center"
+            android:text="@string/card_description"
+            android:textColor="@color/white"
+            android:textSize="24dp" />
+        >
+
+    </androidx.cardview.widget.CardView>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
