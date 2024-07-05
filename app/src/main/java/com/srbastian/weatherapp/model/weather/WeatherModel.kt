@@ -1,4 +1,4 @@
-package com.srbastian.weatherapp.model
+package com.srbastian.weatherapp.model.weather
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties
 

@@ -14,7 +14,9 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_margin="12dp"
+        android:layout_marginTop="24dp"
         android:layout_marginEnd="364dp"
+        android:layout_marginBottom="50dp"
         android:background="@drawable/bkg_search"
         android:closeIcon="@drawable/baseline_close_24"
         android:focusable="false"
@@ -23,21 +25,25 @@
         android:searchHintIcon="@null"
         android:searchIcon="@drawable/baseline_location_on_24"
         android:theme="@style/SearchViewStyle"
+        app:layout_constraintBottom_toTopOf="@+id/materialCardView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-
         app:layout_constraintTop_toTopOf="parent" />
 
-    <androidx.cardview.widget.CardView
-        style="@style/radius"
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/materialCardView"
+        style="@style/MyCardView"
         android:layout_width="250dp"
         android:layout_height="350dp"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="50dp"
-        android:elevation="4dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginBottom="36dp"
+        android:elevation="8dp"
         android:orientation="vertical"
-        app:cardBackgroundColor="@color/light_lila"
+        android:translationZ="10dp"
+        app:cardBackgroundColor="@color/magent"
+        app:layout_constraintBottom_toTopOf="@+id/materialCardView2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/search">
@@ -53,6 +59,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
+            android:fontFamily="@font/noto_sans_semi_condensed_bold"
             android:gravity="center"
             android:text="@string/card_title"
             android:textColor="@android:color/white"
@@ -60,7 +67,7 @@
             android:textStyle="bold" />
 
         <ImageView
-            android:id="@+id/cardImage"
+            android:id="@+id/iv_card"
             android:layout_width="118dp"
             android:layout_height="124dp"
             android:layout_gravity="center"
@@ -72,13 +79,163 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="300dp"
+            android:fontFamily="@font/noto_sans_bold"
             android:gravity="center"
             android:text="@string/card_description"
             android:textColor="@color/white"
             android:textSize="24dp" />
-        >
 
-    </androidx.cardview.widget.CardView>
+    </com.google.android.material.card.MaterialCardView>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/materialCardView2"
+        style="@style/MyCardView"
+        android:layout_width="350dp"
+        android:layout_height="104dp"
+        android:layout_marginTop="36dp"
+        app:cardBackgroundColor="@color/magent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/materialCardView">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+
+            <LinearLayout
+                android:layout_width="116dp"
+                android:layout_height="match_parent"
+                android:background="@color/lila"
+                android:orientation="vertical">
+
+                <ImageView
+
+                    android:id="@+id/iv_wind"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="6dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/ic_launcher_background" />
+
+                <TextView
+                    android:id="@+id/tv_wind_velocity"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:gravity="center"
+                    android:text="@string/card_description_wind_velocity"
+                    android:textColor="@color/white"
+                    android:fontFamily="@font/noto_sans_bold"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/tv_wind_footer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:gravity="center"
+                    android:text="@string/card_description_wind"
+                    android:fontFamily="@font/noto_sans_bold"
+                    android:textColor="@color/white"
+                    android:textSize="12sp" />
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="116dp"
+                android:layout_height="match_parent"
+                android:background="@color/lila"
+                android:orientation="vertical">
+
+                <ImageView
+
+                    android:id="@+id/icon_temperature"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="6dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/ic_launcher_background" />
+
+                <TextView
+                    android:id="@+id/tv_description_temperature"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:gravity="center"
+                    android:fontFamily="@font/noto_sans_bold"
+                    android:text="@string/card_description_temperature_metric"
+                    android:textColor="@color/white"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/tv_temperature_footer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:gravity="center"
+                    android:text="@string/card_description_temperature"
+                    android:textColor="@color/white"
+                    android:fontFamily="@font/noto_sans_bold"
+                    android:textSize="12sp" />
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="116dp"
+                android:layout_height="match_parent"
+                android:background="@color/lila"
+                android:orientation="vertical">
+
+                <ImageView
+
+                    android:id="@+id/icon_humidity"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="6dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/ic_launcher_background" />
+
+                <TextView
+                    android:id="@+id/tv_description_humidity"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:gravity="center"
+                    android:fontFamily="@font/noto_sans_bold"
+                    android:text="@string/card_description_humidity_percentage"
+                    android:textColor="@color/white"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:id="@+id/tv_humidity_footer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:gravity="center"
+                    android:text="@string/card_description_humidity"
+                    android:textColor="@color/white"
+                    android:fontFamily="@font/noto_sans_bold"
+                    android:textSize="12sp" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/materialCardView2"
+        tools:itemCount="3"
+        tools:listitem="@layout/card_view_recycler" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

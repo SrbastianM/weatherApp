@@ -2,7 +2,8 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="light_lila">#cdbecf</color>
-    <color name="lila">#6c4675</color>
-    <color name="magent">#9c80a1</color>
+    <color name="light_lila">#c1b3df  </color>
+    <color name="lila">#362761</color>
+    <color name="magent">#433375</color>
+    <color name="original">#6c4675</color>
 </resources>

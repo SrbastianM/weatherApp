@@ -1,12 +1,10 @@
 package com.srbastian.weatherapp.viewmodel
 
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.srbastian.weatherapp.WeatherRepository
 import com.srbastian.weatherapp.model.CurrentWeatherModel
-import com.srbastian.weatherapp.model.WeatherModel
 import kotlinx.coroutines.launch
 
 class MainViewModel(private val repository: WeatherRepository) : ViewModel() {

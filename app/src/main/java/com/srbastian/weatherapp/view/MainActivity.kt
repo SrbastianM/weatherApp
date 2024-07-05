@@ -19,7 +19,7 @@ import java.security.AccessController.getContext
 class MainActivity : AppCompatActivity() {
     private lateinit var mainActivityBinding: ActivityMainBinding
     private val apiKey = "fed18cf787e6b608067dcbb27c2a4257"
-    private val city = "Bogota"
+    private val city = "Guatavita"
 
     private val mainViewModel: MainViewModel by viewModels {
         MainViewModelFactory(
@@ -34,6 +34,8 @@ class MainActivity : AppCompatActivity() {
         setContentView(view)
         mainActivityBinding.btnStart.setOnClickListener {
             val intent = Intent(applicationContext, FirstPageActivity::class.java)
+            intent.putExtra("city", city)
+            intent.putExtra("apiKey", apiKey)
             startActivity(intent)
             finish()
         }

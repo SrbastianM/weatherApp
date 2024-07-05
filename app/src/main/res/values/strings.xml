@@ -1,7 +1,13 @@
 <resources>
     <string name="app_name">WeatherApp</string>
     <string name="get_started">Get Started</string>
-    <string name="search_bar">hello search</string>
+    <string name="search_bar">Test search</string>
     <string name="card_title">Sexy card Title</string>
     <string name="card_description">Sexy Description</string>
+    <string name="card_description_wind">Wind</string>
+    <string name="card_description_wind_velocity">5km/h</string>
+    <string name="card_description_temperature">Temperature</string>
+    <string name="card_description_temperature_metric">42</string>
+    <string name="card_description_humidity">Humidity</string>
+    <string name="card_description_humidity_percentage">23%</string>
 </resources>
