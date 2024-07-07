@@ -10,4 +10,9 @@
     <string name="card_description_temperature_metric">42</string>
     <string name="card_description_humidity">Humidity</string>
     <string name="card_description_humidity_percentage">23%</string>
+
+    <string name="yesterday">Yesterday</string>
+    <string name="today">Today</string>
+    <string name="tomorrow">Tomorrow</string>
+
 </resources>

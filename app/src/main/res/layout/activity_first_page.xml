@@ -107,7 +107,6 @@
             <LinearLayout
                 android:layout_width="116dp"
                 android:layout_height="match_parent"
-                android:background="@color/lila"
                 android:orientation="vertical">
 
                 <ImageView
@@ -125,10 +124,10 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
+                    android:fontFamily="@font/noto_sans_bold"
                     android:gravity="center"
                     android:text="@string/card_description_wind_velocity"
                     android:textColor="@color/white"
-                    android:fontFamily="@font/noto_sans_bold"
                     android:textSize="14sp" />
 
                 <TextView
@@ -136,17 +135,17 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
+                    android:fontFamily="@font/noto_sans_bold"
                     android:gravity="center"
                     android:text="@string/card_description_wind"
-                    android:fontFamily="@font/noto_sans_bold"
                     android:textColor="@color/white"
                     android:textSize="12sp" />
 
             </LinearLayout>
+
             <LinearLayout
                 android:layout_width="116dp"
                 android:layout_height="match_parent"
-                android:background="@color/lila"
                 android:orientation="vertical">
 
                 <ImageView
@@ -164,8 +163,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
-                    android:gravity="center"
                     android:fontFamily="@font/noto_sans_bold"
+                    android:gravity="center"
                     android:text="@string/card_description_temperature_metric"
                     android:textColor="@color/white"
                     android:textSize="14sp" />
@@ -175,17 +174,17 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
+                    android:fontFamily="@font/noto_sans_bold"
                     android:gravity="center"
                     android:text="@string/card_description_temperature"
                     android:textColor="@color/white"
-                    android:fontFamily="@font/noto_sans_bold"
                     android:textSize="12sp" />
 
             </LinearLayout>
+
             <LinearLayout
                 android:layout_width="116dp"
                 android:layout_height="match_parent"
-                android:background="@color/lila"
                 android:orientation="vertical">
 
                 <ImageView
@@ -203,8 +202,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
-                    android:gravity="center"
                     android:fontFamily="@font/noto_sans_bold"
+                    android:gravity="center"
                     android:text="@string/card_description_humidity_percentage"
                     android:textColor="@color/white"
                     android:textSize="14sp" />
@@ -214,10 +213,10 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
+                    android:fontFamily="@font/noto_sans_bold"
                     android:gravity="center"
                     android:text="@string/card_description_humidity"
                     android:textColor="@color/white"
-                    android:fontFamily="@font/noto_sans_bold"
                     android:textSize="12sp" />
 
             </LinearLayout>
@@ -225,17 +224,196 @@
 
     </com.google.android.material.card.MaterialCardView>
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginEnd="32dp"
+    <RelativeLayout
+        android:layout_width="351dp"
+        android:layout_height="236dp"
         android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/materialCardView2"
-        tools:itemCount="3"
-        tools:listitem="@layout/card_view_recycler" />
+        app:layout_constraintTop_toBottomOf="@+id/materialCardView2">
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="100dp"
+            android:layout_height="130dp"
+            android:layout_alignParentStart="true"
+            android:layout_centerInParent="true"
+            tools:layout_editor_absoluteX="46dp"
+            tools:layout_editor_absoluteY="660dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/lila"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_date_footer_yesterday"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="@font/noto_sans_bold"
+                    android:gravity="center_horizontal"
+                    android:text="Test"
+                    android:textColor="@color/white"
+                    android:textSize="14sp" />
+
+                <ImageView
+                    android:id="@+id/iv_card_footer_yesterday"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="6dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/ic_launcher_background" />
+
+                <TextView
+                    android:id="@+id/tv_footer_yersterday"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="@font/noto_sans_bold"
+                    android:gravity="center_horizontal"
+                    android:text="Test"
+                    android:textColor="@color/white"
+                    android:textSize="18sp" />
+            </LinearLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+        <TextView
+            android:layout_width="100sp"
+            android:layout_height="20sp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentBottom="true"
+            android:layout_centerInParent="true"
+            android:layout_marginBottom="20dp"
+            android:fontFamily="@font/noto_sans_bold"
+            android:gravity="center"
+            android:text="@string/yesterday"
+            android:textColor="@color/white"
+            android:textSize="18sp" />
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="100dp"
+            android:layout_height="130dp"
+            android:layout_centerInParent="true"
+            tools:layout_editor_absoluteX="46dp"
+            tools:layout_editor_absoluteY="660dp"
+
+            >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/lila"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_date_footer_today"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="@font/noto_sans_bold"
+                    android:gravity="center_horizontal"
+                    android:text="Test"
+                    android:textColor="@color/white"
+                    android:textSize="14sp" />
+
+                <ImageView
+                    android:id="@+id/iv_card_footer_today"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="6dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/ic_launcher_background" />
+
+                <TextView
+                    android:id="@+id/tv_footer_today"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="@font/noto_sans_bold"
+                    android:gravity="center_horizontal"
+                    android:text="Test"
+                    android:textColor="@color/white"
+                    android:textSize="18sp" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <TextView
+            android:layout_width="100sp"
+            android:layout_height="20sp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerInParent="true"
+            android:layout_marginBottom="20dp"
+            android:fontFamily="@font/noto_sans_bold"
+            android:gravity="center"
+            android:text="@string/today"
+            android:textColor="@color/white"
+            android:textSize="18sp" />
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="100dp"
+            android:layout_height="130dp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerInParent="true"
+            tools:layout_editor_absoluteX="46dp"
+            tools:layout_editor_absoluteY="660dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/lila"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_date_footer_tomorrow"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="@font/noto_sans_bold"
+                    android:gravity="center_horizontal"
+                    android:text="Test"
+                    android:textColor="@color/white"
+                    android:textSize="14sp" />
+
+                <ImageView
+                    android:id="@+id/iv_card_footer_tomorrow"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="6dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/ic_launcher_background" />
+
+                <TextView
+                    android:id="@+id/tv_footer_tomorrow"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:fontFamily="@font/noto_sans_bold"
+                    android:gravity="center_horizontal"
+                    android:text="Test"
+                    android:textColor="@color/white"
+                    android:textSize="18sp" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <TextView
+            android:layout_width="100sp"
+            android:layout_height="20sp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_centerInParent="true"
+            android:layout_marginBottom="20dp"
+            android:fontFamily="@font/noto_sans_bold"
+            android:gravity="center"
+            android:text="@string/tomorrow"
+            android:textColor="@color/white"
+            android:textSize="18sp" />
+    </RelativeLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
