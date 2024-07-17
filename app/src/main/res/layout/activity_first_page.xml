@@ -238,6 +238,7 @@
             android:layout_height="130dp"
             android:layout_alignParentStart="true"
             android:layout_centerInParent="true"
+            app:cardCornerRadius="@dimen/radius_card"
             tools:layout_editor_absoluteX="46dp"
             tools:layout_editor_absoluteY="660dp">
 
@@ -298,6 +299,7 @@
             android:layout_width="100dp"
             android:layout_height="130dp"
             android:layout_centerInParent="true"
+            app:cardCornerRadius="@dimen/radius_card"
             tools:layout_editor_absoluteX="46dp"
             tools:layout_editor_absoluteY="660dp"
 
@@ -359,6 +361,7 @@
             android:layout_height="130dp"
             android:layout_alignParentEnd="true"
             android:layout_centerInParent="true"
+            app:cardCornerRadius="@dimen/radius_card"
             tools:layout_editor_absoluteX="46dp"
             tools:layout_editor_absoluteY="660dp">
 
