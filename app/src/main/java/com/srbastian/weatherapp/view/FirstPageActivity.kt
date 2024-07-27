@@ -11,7 +11,10 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.view.animation.AccelerateInterpolator
+import android.widget.EditText
+import android.widget.ImageView
 import android.widget.LinearLayout
+import android.widget.SearchView
 import androidx.activity.viewModels
 import androidx.annotation.RequiresApi
 import androidx.core.content.ContextCompat
@@ -53,15 +56,19 @@ class FirstPageActivity : AppCompatActivity() {
             firstPageBinding.lyTomorrow,
             firstPageBinding.lyAfter
         )
-
+        val search = firstPageBinding.search
         layoutsBackgroundColor = ContextCompat.getColor(this, R.color.lila)
 
         threeDaysWeek.forEach { layout ->
             selectOneCard(this, layout, threeDaysWeek)
         }
+
+        searchViewText()
+        afterTomorrowSmallCardWeather()
         todaySmallCardWeather()
         forecastSmallCardWeather()
 
+        updateBigCard()
         firstPageViewModel.fetchCurrentWeather(currentCity.toString(), apiKey.toString())
         firstPageViewModel.fetchForcastWeather(currentCity.toString(), apiKey.toString())
     }
@@ -70,6 +77,7 @@ class FirstPageActivity : AppCompatActivity() {
     fun todaySmallCardWeather() {
         val today: LocalDate = LocalDate.now()
         firstPageViewModel.currentWeather.observe(this) { smallCard ->
+            Log.d("Test", smallCard.weather.toString())
             firstPageBinding.tvDateFooterToday.text = today.dayOfMonth.toString()
             firstPageBinding.tvFooterToday.text = smallCard.weather[0].main
             Picasso.get()
@@ -82,12 +90,27 @@ class FirstPageActivity : AppCompatActivity() {
     fun forecastSmallCardWeather() {
         val today: LocalDate = LocalDate.now()
         firstPageViewModel.forecastWeather.observe(this) { weather ->
-            firstPageBinding.tvFooterTomorrow.text = weather.list[0].weather[0].main
+            Log.d("Test", weather.list.toString())
+            firstPageBinding.tvFooterTomorrow.text = weather.list[1].weather[0].main
             firstPageBinding.tvDateFooterTomorrow.text = today.plusDays(1).dayOfMonth.toString()
             Picasso.get()
-                .load("http://openweathermap.org/img/w/${weather.list[0].weather[0].icon}" + ".png")
+                .load("http://openweathermap.org/img/w/${weather.list[1].weather[0].icon}" + ".png")
                 .resize(50, 50)
                 .into(firstPageBinding.ivCardFooterTomorrow)
+        }
+    }
+
+    @RequiresApi(Build.VERSION_CODES.O)
+    fun afterTomorrowSmallCardWeather() {
+        val today: LocalDate = LocalDate.now().plusDays(2)
+        firstPageViewModel.forecastWeather.observe(this) { afterTomorrow ->
+            val title = today.dayOfMonth.toString()
+            firstPageBinding.tvFooterAfterTomorrow.text = afterTomorrow.list[10].weather[0].main
+            firstPageBinding.tvDateFooterAfterTomorrow.text = title
+            val icon = Picasso.get()
+                .load("http://openweathermap.org/img/w/${afterTomorrow.list[10].weather[0].icon}" + ".png")
+                .resize(50, 50)
+                .into(firstPageBinding.ivCardFooterAfterTomorrow)
         }
     }
 
@@ -106,7 +129,8 @@ class FirstPageActivity : AppCompatActivity() {
                 .load("http://openweathermap.org/img/w/${bigCard.list[0].weather[0].icon}" + ".png")
                 .resize(118, 124)
                 .into(firstPageBinding.ivCard)
-            Card(title, icon, description)
+            val card = Card(title, icon, description)
+            firstPageViewModel.setBigCard(card)
         }
     }
 
@@ -126,7 +150,7 @@ class FirstPageActivity : AppCompatActivity() {
                 .resize(118, 124)
                 .into(firstPageBinding.ivCard)
 
-            Card(title, icon, description) // Esta parte creo que esta mal por que no hace nada
+            Card(title, icon, description)
             firstPageViewModel.setCard
         }
     }
@@ -147,6 +171,7 @@ class FirstPageActivity : AppCompatActivity() {
             when (lay) {
                 layouts[0] -> updateBigCard()
                 layouts[1] -> updateForecastBigCard()
+                layouts[2] -> updateAfterBigCard()
             }
 
         }
@@ -165,5 +190,31 @@ class FirstPageActivity : AppCompatActivity() {
             }
             animator.start()
         }
+    }
+
+    @RequiresApi(Build.VERSION_CODES.O)
+    fun updateAfterBigCard() {
+        val today: LocalDate = LocalDate.now().plusDays(2)
+        val dateFormater = DateTimeFormatter.ofPattern("EEEE, d MMM, yyyy")
+        val formattedDate = today.format(dateFormater)
+        firstPageViewModel.forecastWeather.observe(this) { afterTomorrow ->
+            val title = formattedDate
+            val description = afterTomorrow.list[10].weather[0].main
+            firstPageBinding.cardDescription.text = description
+            firstPageBinding.cardTitle.text = title
+            val icon = Picasso.get()
+                .load("http://openweathermap.org/img/w/${afterTomorrow.list[10].weather[0].icon}" + ".png")
+                .resize(50, 50)
+                .into(firstPageBinding.ivCard)
+            Card(title, icon, description)
+            firstPageViewModel.setCard
+        }
+    }
+
+    @RequiresApi(Build.VERSION_CODES.O)
+    private fun searchViewText() {
+        val searchText =
+            firstPageBinding.search
+        searchText.queryHint = intent.extras?.getString("city")
     }
 }
